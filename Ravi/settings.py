@@ -58,10 +58,22 @@ WSGI_APPLICATION = 'Ravi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8mpj08mtqi9d8',
+        'USER': 'qtunckzouhpjfa',
+        'PASSWORD': 'xxg4w3z2jiQGK0XpxO1CX6HkUK',
+        'HOST': 'ec2-54-225-134-223.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
+
+# Parse database configuration from $DATABASE_URL
+# DATABASES['default'] =  dj_database_url.config()
+
+# Enable Connection Pooling (if desired)
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
