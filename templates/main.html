@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+ 
+{% block body %}
+<link href="../static/css/shop-homepage.css" rel="stylesheet">
+	<div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item">دسته بندی</a>
+            </div>    
+                <div class="list-group">
+                    <a href="#" class="list-group-item">سینما</a>
+                    <a href="#" class="list-group-item">تئاتر</a>
+                    <a href="#" class="list-group-item">موسیقی</a>
+                    <a href="#" class="list-group-item">ورزشی</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner main-carousel">
+                                <div class="item active">
+                                    <img class="slide-image" src="../static/images/linikin.jpg" height="768" width="1024" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="../static/images/radiohead.jpg" height="768" width="1366" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="../static/images/muse.jpg" height="768" width="1024" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                
+            
+          
+                <h1 class="farsi-font">پربیننده ترین</h2>
+                <hr/>
+          
+                    
+                
+
+
+                <div class="row">
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail"
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$74.99</h4>
+                                <h4><a href="/event/">مسابقات فرمول یک جایزه بزرگ مجارستان سال ۲۰۱۵</a>
+                                </h4>
+                                <p>جایزه بزرگ مجارستان با داشتن زمینی با پیچ های شدید یکی از سخت ترین زمین های مسابقات فرمول۱ است</p>
+                            </div>
+                            <div class="ratings">
+            
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$84.99</h4>
+                                <h4><a href="#">Fourth Product</a>
+                                </h4>
+                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div class="ratings">
+                                
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">$94.99</h4>
+                                <h4><a href="#">Fifth Product</a>
+                                </h4>
+                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div class="ratings">
+                                
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock body %}
