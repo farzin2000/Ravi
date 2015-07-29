@@ -1,21 +1,29 @@
 {% extends "base.html" %}
  
 {% block body %}
-<link href="../static/css/shop-homepage.css" rel="stylesheet">
+    <link href="../static/css/shop-homepage.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
 	<div class="container">
 
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-top: 20px">
 
-            <div class="list-group">
-                <a href="#" class="list-group-item">دسته بندی</a>
-            </div>    
-                <div class="list-group">
-                    <a href="#" class="list-group-item">سینما</a>
-                    <a href="#" class="list-group-item">تئاتر</a>
-                    <a href="#" class="list-group-item">موسیقی</a>
-                    <a href="#" class="list-group-item">ورزشی</a>
+                <div class="panel panel-default farsi-font" style="font-size: 18px">
+                    <div class="panel-heading">دسته ها</div>
+                    <div class="panel-body">
+                    <a href="/events/">سینما</a>
+                    </div>
+                     <div class="panel-body">
+                    <a href="#">تئاتر</a>
+                    </div>
+                     <div class="panel-body">
+                    <a href="#">موسیقی</a>
+                    </div>
+                     <div class="panel-body">
+                    <a href="#">ورزشی</a>
+                    </div>
+
                 </div>
             </div>
 
@@ -23,7 +31,7 @@
 
                 <div class="row carousel-holder">
 
-                    <div class="col-md-12">
+
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -48,29 +56,25 @@
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
                         </div>
-                    </div>
+
 
                 </div>
                 
             
           
-                <h1 class="farsi-font">پربیننده ترین</h2>
+                <h1 class="farsi-font">پربیننده ترین</h1>
                 <hr/>
-          
-                    
-                
-
 
                 <div class="row">
 
                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail"
+                        <div class="thumbnail">
                             <img src="http://placehold.it/320x150" alt="">
                             <div class="caption">
-                                <h4 class="pull-right">$74.99</h4>
-                                <h4><a href="/event/">مسابقات فرمول یک جایزه بزرگ مجارستان سال ۲۰۱۵</a>
+{#                                <h4 class="pull-right">$74.99</h4>#}
+                                <h4><a href="/event/" style="max-width: inherit">مسابقات فرمول یک جایزه بزرگ مجارستان سال ۲۰۱۵</a>
                                 </h4>
-                                <p>جایزه بزرگ مجارستان با داشتن زمینی با پیچ های شدید یکی از سخت ترین زمین های مسابقات فرمول۱ است</p>
+                                <p style="max-lines: 1">جایزه بزرگ مجارستان با داشتن زمینی با پیچ های شدید یکی از سخت ترین زمین های مسابقات فرمول۱ است</p>
                             </div>
                             <div class="ratings">
             

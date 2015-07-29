@@ -139,8 +139,8 @@ body {
   border-radius: 3px;
 }
 .cover .btn-lg:hover {
- background-color: #eee;
- transition:0.2s linear all;
+ background-color: #e1e1e1;
+ transition:0.3s linear all;
  }
 
 /*

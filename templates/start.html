@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--dsfas-->
+
 <html>
 
 <head>
@@ -21,7 +21,7 @@
 	<!--<link rel="stylesheet" href="../static/css/demo.css">-->
 	<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
 
-	
+
 
 </head>
 
@@ -29,42 +29,51 @@
 
 	<div class="header-limiter">
 
-		<h1><a href="#">بلیت<span>جو</span></a></h1>
-
-		<nav>
-			
-		</nav>
+		<h1><a href="#">بلیت<span> جو</span> </a></h1>
 
 		<ul>
 			<li><a href="#">ورود</a></li>
 			<li><a data-toggle="modal" data-target="#myModal">ثبت نام</a></li>
-			
+
 		</ul>
 
 	</div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">ورود</h4>
-      </div>
-      <div class="modal-body">
-      <label>نام کاربری:</label>
-        <input type="text"></input>
-        <br>
-        <label>رمز عبور:</label>
-        <input type="text"></input>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">انصراف</button>
-        <a href="/main/" class="btn btn-primary">ورود</a>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">ورود به سامانه </h4>
+          </div>
+          <div class="modal-body">
+          <form role="form" class="form-inline farsi-font" style="font-size: 17px   ">
+                <div class="form-group">
+                    <label style="color: #000000">نام کاربری:</label>
+                    <input type="email" class="form-control" id="username">
+                </div>
+              &nbsp;
+                 <div class="form-group">
+                    <label style="color: #000000">رمز عبور:</label>
+                    <input type="password" class="form-control" id="pass">
+                </div>
+                <br>
+                <div class="checkbox">
+                    <label style="color: #000000;"><input type="checkbox"> &nbsp;
+                                                مرا بخاطر بسپار
+                    </label>
+                </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary farsi-font" data-dismiss="modal">ورود</button>
+            <a href="/main/" class="btn btn-default farsi-font">انصراف</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-</header>
+    </header>
 
 
 	<body>
@@ -89,19 +98,19 @@
           </div>-->
 
           <div class="inner cover">
-            <h1 class="cover-heading">بلیط جو </h1>
-            <p class="lead">همراهی برای لحاظ شادی شما</p>
+            <h1 class="cover-heading farsi-font" style="font-size: 48px">بلیت جو </h1>
+            <p class="lead farsi-font">همراهی برای لحاظات شادی شما</p>
             <p class="lead">
               <a href="/main" class="btn btn-lg btn-default">وارد شوید</a>
             </p>
           </div>
 
-         <!-- <footer class="mastfoot"> 
-            <div class="inner">         
+         <!-- <footer class="mastfoot">
+            <div class="inner">
         	<div class="ft-center">
 			<div class="ft-logo"><img src="../images/logo.jpg" alt=""></div>
 			<div class="ft-copyright">
-				<p>تمامی حقوق وبسایت مربوط به گروه فناوری راوی است</p>		
+				<p>تمامی حقوق وبسایت مربوط به گروه فناوری راوی است</p>
 			</div>
 		</div> -->
         </div>
@@ -116,17 +125,15 @@
 				<h3><img src="../static/images/logo.jpg" alt="Mountain View" style="width:50px;height:50px;"></h3>
 
 				<p class="footer-links">
-					<a href="#">Home</a>
-					·
-					<a href="#">Blog</a>
-					·
-					<a href="#">Pricing</a>
-					·
-					<a href="#">About</a>
-					·
-					<a href="#">Faq</a>
-					·
-					<a href="#">Contact</a>
+					<a href="#">خانه</a>
+                    &nbsp;&nbsp;
+					<a href="#">وبلاگ</a>
+                    &nbsp;&nbsp;
+					<a href="#">درباره ما</a>
+                    &nbsp;&nbsp;
+					<a href="#">سوالات متداول</a>
+                    &nbsp;&nbsp;
+					<a href="#">تماس با ما</a>
 				</p>
 
 				<p class="footer-company-name">RaVi &copy; 2015</p>

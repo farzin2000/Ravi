@@ -73,11 +73,14 @@
 
 .header-user-dropdown .header-limiter .header-user-menu{
 	position: relative;
+	z-index:100;
 	float:right;
 	background-color:#3a3c3e;
 	width:75px;
 	height:40px;
 	border-radius:2px;
+
+;
 }
 
 .header-user-dropdown .header-limiter .header-user-menu:before{
@@ -115,6 +118,7 @@
 
 .header-user-dropdown .header-user-menu ul li{
 	padding:5px;
+	font-family: mitra;
 }
 
 .header-user-dropdown .header-user-menu ul li a:hover{

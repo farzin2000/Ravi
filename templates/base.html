@@ -7,174 +7,193 @@
     <script src="../static/js/jquery-1.11.3.min.js"></script>
     <script  src="../static/js/bootstrap.min.js"></script>
 
-    
-   
-	<title>BlitJoo</title>
-	
+
+
+    <title>BlitJoo</title>
+
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/bootstrap-rtl.css">
     <link rel="stylesheet" href="../static/css/footer.css">
-	<link rel="stylesheet" href="../static/css/header-search.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/header-login-signup.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/header-user-dropdown.css">
+    <link rel="stylesheet" href="../static/css/header-search.css">
+    <link rel="stylesheet" href="../static/css/header-login-signup.css">
+    <link rel="stylesheet" href="../static/css/header-user-dropdown.css">
 
 </head>
 <body>
-	
-	{% if sigend_in %}
-	
-<header class="header-user-dropdown">
 
-	<div class="header-limiter">
-		<h1><a href="#">بلیت<span>جو</span></a></h1>
+{% if signed_in %}
 
+    <header class="header-user-dropdown header-search header-login-signup">
 
-		<div class="header-user-menu">
-			<img src="../static/images/2.jpg" height="128" width="128" alt="User Image"/>
-
-			<ul>
-				<li><a href="/user">تنضیمات</a></li>
-				<li><a href="#">پرداختی ها</a></li>
-				<li><a href="#" class="highlight">خروج</a></li>
-			</ul>
-		</div>
-
-	</div>
-
-</header>
+        <div class="header-limiter">
+            <h1><a href="#">بلیت<span>جو</span></a></h1>
 
 
-	{% endif %}
-	{% if  guest %}
-		<header class="header-search">
+            <div class="header-user-menu">
+                <div class="user-drop">
+                    <img src="../static/images/2.jpg" height="28" width="28" alt="User Image"/>
+                </div>
+                <div style="padding-right: 50px">
+                    <form method="get" action="#" >
+                        <input type="search" placeholder="جستجو" name="search" >
+                    </form>
+                </div>
 
-		<div class="header-limiter">
+                <ul class="farsi-font">
+                    <li><a href="/user">تنضیمات</a></li>
+                    {% if not admin %}
+                        <li><a href="/activity">پرداختی ها</a></li>
+                    {% endif %}
+                    {% if admin %}
+                        <li><a href="/reports">گزارشات</a></li>
+                    {% endif %}
+                    <li><a href="/exit" class="highlight">خروج</a></li>
+                </ul>
+            </div>
 
-			
-			<h1><a href="#">بلیت<span>جو</span></a></h1>
-			<form method="get" action="#">
-				<input type="search" placeholder="جستجو" name="search">
-			</form>
-			<nav>
-				<a href="/main/">خانه</a>
-				<a href="#">تماس با ما</a>
-				<a href="#">درباره ما</a>
-			</nav>
+        </div>
+
+    </header>
+
+
+{% endif %}
+{% if  guest %}
+    <header class="header-search header-login-signup">
+
+        <div class="header-limiter">
+
+
+            <h1><a href="#">بلیت<span>جو</span></a></h1>
+            <form method="get" action="#">
+                <input type="search" placeholder="جستجو" name="search">
+            </form>
+            <ul id="login-list">
+                <li><a href="#">ورود</a></li>
+                <li><a data-toggle="modal" data-target="#myModal">ثبت نام</a></li>
+
+            </ul>
+            <nav>
+                <a href="/main/">خانه</a>
+                <a href="#">تماس با ما</a>
+                <a href="#">درباره ما</a>
+            </nav>
 
 
 
-		</div>
+        </div>
 
-	</header>
-	{% endif %}
-	
+    </header>
+{% endif %}
 
-	{% block body %}
-	
-		
-	{% endblock %}
 
-	<footer class="footer-distributed">
+{% block body %}
 
-		<div class="footer-left">
 
-			<h3><img src="../static/images/logo.jpg" alt="Mountain View" style="width:50px;height:50px;"></h3>
+{% endblock %}
 
-			<p class="footer-links">
-				<a href="/main/">Home</a>
-				·
-				<a href="#">Blog</a>
-				·
-				<a href="#">Pricing</a>
-				·
-				<a href="#">About</a>
-				·
-				<a href="#">Faq</a>
-				·
-				<a href="#">Contact</a>
-			</p>
+<footer class="footer-distributed">
 
-			<p class="footer-company-name">RaVi &copy; 2015</p>
-		</div>
+    <div class="footer-left">
 
-		<div class="footer-center">
+        <h3><img src="../static/images/logo.jpg" alt="Mountain View" style="width:50px;height:50px;"></h3>
 
-			<div>
-				<i class="fa fa-map-marker"></i>
-				<p><span>دانشگاه صنعتی شریف</span> تهران, ایران</p>
-			</div>
+        <p class="footer-links">
+            <a href="/main/">Home</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="#">Pricing</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="#">Faq</a>
+            ·
+            <a href="#">Contact</a>
+        </p>
 
-			<div>
-				<i class="fa fa-phone"></i>
-				<p>+98 22334455</p>
-			</div>
+        <p class="footer-company-name">RaVi &copy; 2015</p>
+    </div>
 
-			<div>
-				<i class="fa fa-envelope"></i>
-				<p><a href="mailto:support@company.com">support@ravi.com</a></p>
-			</div>
+    <div class="footer-center">
 
-		</div>
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>دانشگاه صنعتی شریف</span> تهران, ایران</p>
+        </div>
 
-		<div class="footer-right">
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+98 22334455</p>
+        </div>
 
-			<p class="footer-company-about">
-				<span>درباره شرکت</span>
-				گروه فناوری روی کار خود را در پاییز سال ۱۳۹۴ آغاز کرده و هم‌اکنون مشغول انجام پروژه‌هایی‌ در زمینه طراحی سایت می‌باشد
-			</p>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@ravi.com</a></p>
+        </div>
 
-			<div class="footer-icons">
+    </div>
 
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-				<a href="#"><i class="fa fa-github"></i></a>
+    <div class="footer-right">
 
-			</div>
+        <p class="footer-company-about">
+            <span>درباره شرکت</span>
+            گروه فناوری روی کار خود را در پاییز سال ۱۳۹۴ آغاز کرده و هم‌اکنون مشغول انجام پروژه‌هایی‌ در زمینه طراحی سایت می‌باشد
+        </p>
 
-		</div>
+        <div class="footer-icons">
 
-	</footer>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
 
 <script>
 
-	$(document).ready(function() {
+    $(document).ready(function() {
 
-		$('.header-search form').on('click', function(e) {
+        $('.header-search form').on('click', function(e) {
 
-			// If the form (which is turned into the search button) was
-			// clicked directly, toggle the visibility of the search box.
+            // If the form (which is turned into the search button) was
+            // clicked directly, toggle the visibility of the search box.
 
-			if(e.target == this) {
-				$(this).find('input').toggle();
-			}
+            if(e.target == this) {
+                $(this).find('input').toggle();
+                $("#login-list").css("padding-right", "250px");
+            }
 
-		});
-	});
+        });
+    });
 
-	$(document).ready(function(){
+    $(document).ready(function(){
 
-		var userMenu = $('.header-user-dropdown .header-user-menu');
+        var userMenu = $('.header-user-dropdown .header-user-menu .user-drop');
+        {#        var userMenu = $('#user-drop');#}
+        alert(userMenu);
+        userMenu.on('touchend', function(e){
 
-		userMenu.on('touchend', function(e){
+            userMenu.addClass('show');
 
-			userMenu.addClass('show');
+            e.preventDefault();
+            e.stopPropagation();
 
-			e.preventDefault();
-			e.stopPropagation();
+        });
 
-		});
+        // This code makes the user dropdown work on mobile devices
 
-		// This code makes the user dropdown work on mobile devices
+        $(document).on('touchend', function(e){
 
-		$(document).on('touchend', function(e){
+            // If the page is touched anywhere outside the user menu, close it
+            userMenu.removeClass('show');
 
-			// If the page is touched anywhere outside the user menu, close it
-			userMenu.removeClass('show');
+        });
 
-		});
-
-	});
+    });
 
 
 
