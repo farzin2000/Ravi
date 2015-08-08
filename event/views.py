@@ -80,7 +80,6 @@ def edit_subtype(request,subtypename):
         subt = subt[0]
         if request.method == 'POST':
             str = request.POST.get("0")
-            print(str)
             Subtype.objects.filter(sub_type=subtypename).update(sub_type=request.POST.get("0"),name=str)
         return render(request,'edit-sub.html',{'sub_type':subt,'name':name,'admin':True,'signed_in':True})
 
