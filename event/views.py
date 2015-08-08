@@ -76,11 +76,15 @@ def delSubType(request,subtypename):
 def edit_subtype(request,subtypename):
 
         subt = Subtype.objects.filter(sub_type=subtypename)
-        name = subt.values_list('name')[0][0]
+        if not subt.values_list('name') == None:
+            name = subt.values_list('name')[0][0]
         subt = subt[0]
         if request.method == 'POST':
             str = request.POST.get("0")
             Subtype.objects.filter(sub_type=subtypename).update(sub_type=request.POST.get("0"),name=str)
+            subt = Subtype.objects.filter(sub_type=str)
+            name = subt.values_list('name')[0][0]
+            subt=subt[0]
         return render(request,'edit-sub.html',{'sub_type':subt,'name':name,'admin':True,'signed_in':True})
 
 def eventsType(request, e_type):
