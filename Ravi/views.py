@@ -84,7 +84,8 @@ def adminSetting(request):
 
 def edit_see(request, username):
 
-    djangoUser = models.User.objects.filter(username=username)
+    djangoUser = models.User.objects.filter(id=username)
+    usern = djangoUser.values_list('username')[0]
     myUser = User.objects.filter(user = djangoUser)
     address = myUser.values_list('address',flat=True)
     gender = myUser.values_list('gender',flat=True)
@@ -109,6 +110,6 @@ def edit_see(request, username):
             models.User.objects.filter(username=username).update(email=request.POST.get('mail'))
 
     return render(request, 'profile_edit.html',
-                  {'img_address': pic[0], 'username':username[0], 'lastname':lastname[0], 'tel':tel[0], 'name':name[0], 'addr':address[0], 'mail':mail[0],'signed_in': True}
+                  {'img_address': pic[0], 'username':usern[0], 'lastname':lastname[0], 'tel':tel[0], 'name':name[0], 'addr':address[0], 'mail':mail[0],'signed_in': True}
                   )
 

@@ -14,82 +14,14 @@
                         {% if type == "all" %}
                             <div class="panel-heading">دسته ها</div>
                             <div class="panel-body">
-                                <a href="/events/{{ type }}/">نمایش همه</a>
+                                <a href="/my-admin/events/{{ type }}/">نمایش همه</a>
                             </div>
                             {% for mytype in types %}
                                 <div class="panel-body">
-                                    <a href="/category/{{ mytype.name }}/">{{ mytype.name }}</a>
+                                    <a href="/my-admin/events/{{ mytype.name }}/">{{ mytype.name }}</a>
                                 </div>
                             {% endfor %}
                         {% endif %}
-                        {#                        {% if type == "cinema" %}#}
-                        {#                            <div class="panel-heading">سینما</div>#}
-                        {#                            {% for subtype in subtypes %}#}
-                        {#                                <div class="panel-body">#}
-                        {#                                    <a href="/events/{{ type }}/{{ subtype.name }}/">{{ subtype.name }}</a>#}
-                        {#                                </div>#}
-                        {#                            {% endfor %}#}
-                        {#                        {% endif %}#}
-                        {##}
-                        {#                        {% if type == "theater" %}#}
-                        {#                            <div class="panel-heading">تئاتر</div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/comedy/">کمدی</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/drama/">درام</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/romance/">رومانس</a>#}
-                        {#                            </div>#}
-                        {#                        {% endif %}#}
-                        {##}
-                        {#                        {% if type == "sport" %}#}
-                        {#                            <div class="panel-heading">ورزشی</div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/football/">فوتبال</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/volleyball/">والیبال</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/handball/">هندبال</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/basketball/">بسکتبال</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/racing/">اتومبیل رانی</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/swimming/">شنا</a>#}
-                        {#                            </div>#}
-                        {#                        {% endif %}#}
-                        {##}
-                        {#                        {% if type == "music" %}#}
-                        {#                            <div class="panel-heading">موزیک</div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/rock/">راک</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/pop/">پاپ</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/metal/">متال</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/classic/">کلاسیک</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/instrumental/">بی کلام</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/folk/">سنتی</a>#}
-                        {#                            </div>#}
-                        {#                            <div class="panel-body">#}
-                        {#                                <a href="/events/{{ type }}/country/">کانتری</a>#}
-                        {#                            </div>#}
-                        {#                        {% endif %}#}
                     </div>
                 </div>
                 <div class="col-md-9">
