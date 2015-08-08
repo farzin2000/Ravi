@@ -32,3 +32,13 @@
 .buy:hover {
     opacity: 2;
 }
+
+.farsi-font {
+    font-family: mitra;
+}
+
+.footer-distributed {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}

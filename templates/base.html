@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script src="../static/js/jquery-1.11.3.min.js"></script>
-    <script  src="../static/js/bootstrap.min.js"></script>
+    {% load staticfiles %}
+    <script src={% static "js/jquery-1.11.3.min.js"%}></script>
+    <script  src={% static "js/bootstrap.min.js" %}></script>
 
 
 
     <title>BlitJoo</title>
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/bootstrap-rtl.css">
-    <link rel="stylesheet" href="../static/css/footer.css">
-    <link rel="stylesheet" href="../static/css/header-search.css">
-    <link rel="stylesheet" href="../static/css/header-login-signup.css">
-    <link rel="stylesheet" href="../static/css/header-user-dropdown.css">
+    <link rel="stylesheet" href={% static "css/bootstrap.css" %}>
+    <link rel="stylesheet" href={% static "css/bootstrap-rtl.css" %}>
+    <link rel="stylesheet" href={% static "css/footer.css" %}>
+    <link rel="stylesheet" href={% static "css/header-search.css" %}>
+    <link rel="stylesheet" href={% static "css/header-login-signup.css" %}>
+    <link rel="stylesheet" href={% static "css/header-user-dropdown.css" %}>
+{#    <link rel="stylesheet" href={% static "css/admin.css" %}>#}
 
 </head>
 <body>
@@ -31,7 +33,7 @@
 
             <div class="header-user-menu">
                 <div class="user-drop">
-                    <img src="../static/images/2.jpg" height="28" width="28" alt="User Image"/>
+                    <img src={% static "images/2.jpg" %} height="28" width="28" alt="User Image"/>
                 </div>
                 <div style="padding-right: 50px">
                     <form method="get" action="#" >
@@ -40,12 +42,13 @@
                 </div>
 
                 <ul class="farsi-font">
-                    <li><a href="/user">تنضیمات</a></li>
                     {% if not admin %}
+                        <li><a href="/user">تنضیمات</a></li>
                         <li><a href="/activity">پرداختی ها</a></li>
                     {% endif %}
                     {% if admin %}
-                        <li><a href="/reports">گزارشات</a></li>
+                        <li><a href="/my-admin/settings/">تنضیمات</a></li>
+                        <li><a href="/my-admin/">صفحه اصلی</a></li>
                     {% endif %}
                     <li><a href="/exit" class="highlight">خروج</a></li>
                 </ul>
@@ -72,6 +75,42 @@
                 <li><a data-toggle="modal" data-target="#myModal">ثبت نام</a></li>
 
             </ul>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title farsi-font" style="color: #000000" id="myModalLabel">ورود به سامانه </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" action="/main/" method="post" class="form-inline farsi-font" style="font-size: 17px   ">{% csrf_token %}
+                                <div class="form-group">
+                                    <label style="color: #000000">نام کاربری:</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                &nbsp;
+                                <div class="form-group">
+                                    <label style="color: #000000">رمز عبور:</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <br>
+                                <div class="checkbox">
+                                    <label style="color: #000000;"><input type="checkbox"> &nbsp;
+                                        مرا بخاطر بسپار
+                                    </label>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" class="btn btn-primary farsi-font" value="ورود" >
+                                    <a href="/main/" class="btn btn-default farsi-font">انصراف</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <nav>
                 <a href="/main/">خانه</a>
                 <a href="#">تماس با ما</a>
@@ -95,7 +134,7 @@
 
     <div class="footer-left">
 
-        <h3><img src="../static/images/logo.jpg" alt="Mountain View" style="width:50px;height:50px;"></h3>
+        <h3><img  alt="Mountain View" style="width:50px;height:50px;" src={% static "images/logo.jpg" %}></h3>
 
         <p class="footer-links">
             <a href="/main/">Home</a>
@@ -174,7 +213,7 @@
 
         var userMenu = $('.header-user-dropdown .header-user-menu .user-drop');
         {#        var userMenu = $('#user-drop');#}
-        alert(userMenu);
+
         userMenu.on('touchend', function(e){
 
             userMenu.addClass('show');

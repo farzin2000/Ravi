@@ -1,26 +1,33 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from event.views import eventDetailedView, events
+from event.views import eventDetailedView, eventsType, create_event,edit_event,delete_events,subtypes,subtype
+from account.views import create_account,login_to_site,allUsers,delUsers,eventsSub
 from Ravi import views
+from django.views.generic import RedirectView
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'Ravi.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.startPage),
     url(r'^main/', views.mainPage),
-    url(r'^event/', eventDetailedView),
+    url(r'^event/([0-9]+)', eventDetailedView),
     url(r'^buy/', views.buy),
-    url(r'^user/', views.user),
-    # url(r'^admin/', views.modir),
-    url(r'^events/', events),
-
-    
-
-
-    
-
+    # url(r'^user/', views.user),
+    url(r'^category/([a-zA-Z]+)', subtypes),
+    url(r'^cat/([a-zA-Z]+)', subtype),
+    url(r'^(?P<e_type>[a-zA-Z]+)/(?P<subtype>[a-zA-Z]+)', eventsSub),
+    url(r'^events/', include('event.urls')),
+    url(r'^add-event/', create_event),
+    url(r'^sign-up/', views.signup),
+    url(r'^signed-up/', create_account),
+    url(r'^user/([a-zA-Z0-9]+)', views.edit_see),
+    url(r'^my-admin/', include('account.urls')),
+    url(r'^edit-event/([0-9]+)', edit_event),
+    url(r'^login/',login_to_site),
+    url(r'^events-delete/([a-zA-Z0-9]+)',delete_events),
+    url(r'^users/all/',allUsers),
+    url(r'^users-delete/([0-9]+)',delUsers),
 )
+
+
 

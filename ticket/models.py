@@ -24,7 +24,6 @@ class Buy(models.Model):
 
     user = models.OneToOneField('account.User')
     event = models.OneToOneField('event.Event')
-    # ticket = models.ManyToManyRel('Ticket')
     date = models.DateField()
     purches_id = models.IntegerField()
     trace_id = models.IntegerField()

@@ -43,6 +43,24 @@ from django.db import models
 #         return self.name
 
 
+class Type(models.Model):
+
+    type = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+
+
+    def __str__(self):
+        return self.name
+
+class Subtype (models.Model):
+
+    sub_type = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    type = models.ForeignKey('Type')
+
+    def __str__(self):
+        return self.name
+
 class Event(models.Model):
 
     name = models.CharField(max_length=100)
@@ -55,6 +73,11 @@ class Event(models.Model):
     ticket_num = models.IntegerField()
     type = models.CharField(max_length=100)
     sub_type = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    ticket_price = models.CharField(max_length=8)
+    rate = models.IntegerField()
+
+
 
     def __str__(self):
         return self.name
