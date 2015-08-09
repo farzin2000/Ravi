@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block body %}
+    <style>
+        body { background: #808080; }
+    </style>
+    {% load staticfiles %}
+    <link href={% static "css/main.css" %}>
+    <div class="container farsi-font">
+        <section style="padding-top: 40px;padding-right: 200px;padding-left: 200px;padding-bottom: 50%">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button class="btn-lg btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            افزودن رویداد
+                            <span class="caret"></span>
+                        </button>
+                        <ul id="list" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            {% for type in types %}
+                                <li><a href="/my-admin/add-event/{{ type.name }}/">{{ type.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn-info btn-lg"><a href="/my-admin/events/all/">مشاهده و حذف رویدادها</a></button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn-info btn-lg"><a href="/my-admin/types/all/">مشاهده،حذف و افزودن دسته</a></button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn-info btn-lg"><a href="/my-admin/users/all/">مشاهده و حذف کاربران</a></button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn-warning btn-lg"><a href="/my-admin/settings/">تنظیمات</a></button>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock body %}

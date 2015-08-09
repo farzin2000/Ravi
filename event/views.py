@@ -89,7 +89,7 @@ def eventsType(request, e_type):
         return render(request, 'events.html', {'signed_in':True,'admin': True,'types':types1, 'type': e_type, 'events': allEvents})
     else:
         allEvents = Event.objects.filter(type=e_type)
-        return render(request, 'events.html', {'signed_in':True,'admin': True,'type': e_type, 'events': allEvents})
+        return render(request, 'events.html', {'signed_in':True,'admin': True,'types':types1,'type': e_type, 'events': allEvents})
 
 def eventsSubtype(request, e_type, subtype):
 

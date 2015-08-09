@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block body %}
+    {% load staticfiles %}
+    <link href={% static "css/shop-homepage.css" %} rel="stylesheet">
+    <link href={% static "css/main.css" %} rel="stylesheet">
+    <style>
+        body { background: #808080; }
+    </style>
+
+    <div class="container farsi-font">
+        <section style="padding-left: 750px;padding-bottom: 50%">
+            {% for user in users %}
+                {% if user.id != 1 %}
+                    <div class="row">
+                        <div class="thumbnail" >
+                            <div class="caption">
+                                <h4 class="farsi-font" style="text-align: center"><a href="/user/{{ user.id }}/" style="max-width: inherit">{{ user.first_name }} {{ user.last_name }}</a>
+                                </h4>
+                                <p style="text-align: justify">{{user.email}}</p>
+                            </div>
+                            <p>
+                                {% if admin %}
+                                    <a href="/users-delete/{{ user.id }}" class="pull-left btn btn-danger"/>حذف</a>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+    </div>
+{% endblock body %}

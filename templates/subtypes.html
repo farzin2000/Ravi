@@ -11,17 +11,12 @@
             <div class="row">
                 <div class="col-md-3" style="margin-top: 20px">
                     <div class="panel panel-default farsi-font" style="font-size: 18px">
-                        {% if type == "all" %}
-                            <div class="panel-heading">دسته ها</div>
+                        <div class="panel-heading">{{ type }}</div>
+                        {% for subtype in subtypes %}
                             <div class="panel-body">
-                                <a href="/my-admin/events/{{ type }}/">نمایش همه</a>
+                                <a href="/cat/{{ subtype.name }}/">{{ subtype.name }}</a>
                             </div>
-                            {% for mytype in types %}
-                                <div class="panel-body">
-                                    <a href="/my-admin/category/{{ mytype.name }}/">{{ mytype.name }}</a>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-md-9">

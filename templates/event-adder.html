@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body %}
+    <style type="text/css">
+        body { background: #808080; }
+    </style>
+    {% load staticfiles %}
+    <title>اضافه کردن رویداد</title>
+    <link rel="stylesheet" href={% static 'css/jquery-ui.css' %}>
+    <script src={% static "js/jquery-ui.js" %}></script>
+
+    <section style="padding-top: 80px; padding-bottom: 100px; padding-right: 450px;">
+        <div class="row farsi-font">
+            <form role="form" action="/my-admin/add-event/{{ type }}/" method="post"> {% csrf_token %}
+                <div class="col-xs-3" style="float: right;">
+                    <div class="form-group">
+                        <label for="event_daste">:دسته رویداد</label>
+                        <input type="text" name="event_daste" value="{{ type }}" disabled>
+                        <br>
+                        <label for="event_name">:نام رویداد</label>
+                        <input type="text" class="form-control" name="event_name">
+                        <label for="genre">زیر دسته رویداد</label>
+
+                        <select class="form-control btn btn-primary dropdown" name="genre">
+                            {% for subtype in subtypes %}
+                                <option value="{{ subtype.name }}">{{ subtype.name }}</option>
+                            {% endfor %}
+                        </select>
+                        {#						<option value="football">فوتبال</option>#}
+                        {#						<option value="volleyball">والیبال</option>#}
+                        {#						<option value="basketball">بسکتبال</option>#}
+                        {#						<option value="handball">هندبال</option>#}
+                        {#						<option value="swimming">شنا</option>#}
+                        {#						<option value="wrestling">کشتی</option>#}
+                        {#						<option value="shooting">تیر اندازی</option>#}
+                        {#						<option value="car_racing">اتومبیل رانی</option>#}
+                        {#						<option value="snooker">اسنوکر</option>#}
+                        {#						<option value="chess">شطرنج</option>#}
+                        {#						<option value="tennis">تنیس</option>#}
+                        {#						<option value="table_tennis">تنیس روی میز</option>#}
+                        {#						<option value="futsal">فوتسال</option>#}
+                        {#						<option value="gymnastics">ژیمناستیک</option>#}
+                        {#						<option value="track_and_field">دو و میدانی</option>#}
+                        {#						<option value="martial_arts">هنر های رزمی</option>#}
+                        {#						<option value="rowing">قایقرانی</option>#}
+                        {#						</select>#}
+                        {#						<select class="form-control cinema hide" name="genre2" >#}
+                        {#						<option value="action">اکشن</option>#}
+                        {#						<option value="comedy">کمدی</option>#}
+                        {#						<option value="drama">درام</option>#}
+                        {#						<option value="romance">رومنس</option>#}
+                        {#						<option value="crime">جنایی</option>#}
+                        {#						<option value="horror">ترسناک</option>#}
+                        {#						<option value="thriller">هیجانی</option>#}
+                        {#						<option value="documentary">مستند</option>#}
+                        {#						</select>#}
+                        {##}
+                        {#						<select class="form-control music hide" name="genre3">#}
+                        {#						<option value="pop">پاپ</option>#}
+                        {#						<option value="rock">راک</option>#}
+                        {#						<option value="metal">متال</option>#}
+                        {#						<option value="jazz">جز</option>#}
+                        {#						<option value="classic">کلاسیک</option>#}
+                        {#						<option value="instrumental">بی کلام</option>#}
+                        {#						<option value="folk">سنتی</option>#}
+                        {#						<option value="country">کانتری</option>#}
+                        {#						</select>#}
+                        {##}
+                        {#						<select class="form-control theater hide" name="genre4">#}
+                        {#						<option value="comedy">کمدی</option>#}
+                        {#						<option value="drama">درام</option>#}
+                        {#						<option value="romance">رومنس</option>#}
+                        {#						</select>#}
+
+                        <label for="event_place">:نام محل برگزاری</label>
+                        <input type="text" class="form-control" name="event_place">
+                        <label for="event_ticket">:تعداد بلیت</label>
+                        <input type="text" class="form-control" name="event_ticket">
+                        <label for="event_price">:قیمت بلیت</label>
+                        <input type="text" class="form-control" name="event_price">
+                        <label for="event_datestart">شروع رویداد</label>
+                        <br>
+                        <script>
+                            $(function() {
+                                $( "#datepicker" ).datepicker();
+                            });
+                        </script>
+                        <input type="text" id="datepicker" name="datepicker">
+                        <br>
+                        <label for="event_date">تاریخ اتمام خرید بلیت</label>
+                        <br>
+                        <script>
+                            $(function() {
+                                $( "#datepicker1" ).datepicker();
+                            });
+                        </script>
+                        <input type="text" id="datepicker1" name="datepicker1">
+                    </div>
+                </div>
+                <div class="col-xs-5" style="float: right;">
+                    <div class="form-group">
+                        <label for="event_address">:نشانی محل برگزاری</label>
+                        <input type="text" class="form-control" name="event_addr">
+                        <br>
+                        <label for="event_info"name="info">:توضیحات</label>
+                        <textarea class="form-control" rows="5" name="info"></textarea>
+
+                        <label for="event_pic" name="pic">درج تصویر</label>
+
+                        <input id="file-4" name="file-4[]" type="file" multiple>
+                        <script>
+                            $(document).on('ready', function() {
+                                // the file input
+                                var $el = $('#file-4'), initPlugin = function() {
+                                    $el.fileinput({
+                                        uploadUrl: '/site/file-upload-single?type=1',
+                                        uploadExtraData: {kvId: '10'},
+                                        dropZoneEnabled: false
+                                    }).off('filepreupload').on('filepreupload', function() {
+                                        alert("Initial pre-upload message!");
+                                    });
+                                };
+                            });
+                        </script>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="ثبت">
+                    <br>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock body %}
+</html>
